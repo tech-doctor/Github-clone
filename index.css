@@ -8,7 +8,10 @@ body{
   align-items: center;
   justify-content: space-between;
   padding:  0.1em 0;
-  align-self: stretch;
+}
+
+.nav-left{
+  margin-left: -20px;
 }
 .nav-left ul{
   display: flex;
@@ -31,12 +34,6 @@ body{
   font-weight: 600;
 }
 
-/* @media (max-width:900px){
-  .nav-left * {
-    margin-right: 7px;
-  }  
-} */
-
 .fa-github{
   font-size: 37px;
   color: white;
@@ -47,7 +44,7 @@ body{
   font-family: 'Font Awesome 5';
   font-weight: 100;
   list-style: none;
-  margin-left: 40px;
+  margin-left: 20px;
   cursor: pointer;
 }
 
@@ -148,13 +145,14 @@ body{
   font-family: Arial, Helvetica, sans-serif;
 }
 .bio .name{
-  font-size: 22px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 29px;
   font-weight: 600;
   color: rgb(24, 24, 24);
 }
 .bio .nick{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 300;
 }
 
@@ -232,6 +230,9 @@ strong{
 .tab{
   width: 100%;
   display: flex;
+}
+.tablinks{
+  white-space: pre;
 }
  .hr{
   color: white;
@@ -330,10 +331,11 @@ strong{
   margin-top: -10px;
   color: rgb(100, 100, 100);
 }
-.repo-extradetails p{
+.repo-extradetails span{
   padding-right: 1em;
   display: flex;
   align-items: center;
+  font-size: 14px;
 }
 
 .repo-extradetails *{
@@ -350,7 +352,29 @@ strong{
 .repo-name a:hover{
   text-decoration: underline;
 }
+.repo-name .forked-source{
+  color:rgb(100, 100, 100);
+  font-size: 14px;
+  margin: 1px 0;
+}
+.repo-name .forked-source a{
+  color:rgb(100, 100, 100);
+  font-size: 14px;
+  margin: 1px 0;
+  font-weight: 400;
+}
 
+.repo-name .forked-source a:hover{
+  text-decoration: none;
+  color: #0366d6 ;
+}
+
+
+.repo-name .repo-description{
+  color:rgb(100, 100, 100);
+  font-size: 17px;
+  margin: 1px 0;
+}
 
 .repository-content {
   display: flex;
@@ -376,6 +400,7 @@ strong{
   padding: 5px 7px;
   border-radius: 6px;
   cursor: pointer;
+  white-space: pre;
 }
 
 .repository-content .right button:hover{
@@ -393,21 +418,73 @@ strong{
   .repository-name a{
     font-size: 17px;
   }
+  .repo-extradetails span{
+    padding-right: 0.5em;
+    display: inline-block;
+    margin-top: 0px;
+    
+  }
+  .repo-extradetails{
+    display: inline;
+    
+  }
+  
 }
 
 @media(max-width:400px){
-   .repo-extradetails p{
+   .repo-extradetails span{
     padding-right: 0.5em;
+    display: inline-block;
+    margin-top: 0px;
+    font-size: 12px;
   }
   .repo-name a{
     font-size: 17px;
   }  
+  .repo-extradetails{
+    display: inline;
+    
+  }
+  .repository-content .left{
+    width: 100%;
+  }
+  .repo-name .forked-source{
+    font-size: 12px;
+  }
+  .repo-name .forked-source a{
+    font-size: 12px;
+  }
+  .repo-name .repo-description{
+    font-size: 14px;
+  }
 }
 
 @media(max-width:350px){
-  .repository-content .right button{
-    width: 60px;
+  .repo-extradetails span{
+    padding-right: 0.5em;
+    display: inline-block;
+    margin-top: 0px;
+    font-size: 10px;
   }
+  .repo-name a{
+    font-size: 17px;
+  }  
+  .repo-extradetails{
+    display: inline;
+    
+    
+  }
+
+  .repo-name .forked-source{
+    font-size: 12px;
+  }
+  .repo-name .forked-source a{
+    font-size: 12px;
+  }
+  .repo-name .repo-description{
+    font-size: 14px;
+  }
+
 }
 
 
@@ -418,9 +495,10 @@ strong{
 
 .mobile-dropdown{
   background-color: rgb(39, 39, 39);
-  padding:  0.1em 0 2em 0;
+  padding:  0.2em 0 2em 0;
   margin: auto;
   display: none;
+  margin-left: -20px;
 }
 
 .toggle-bar{
@@ -430,12 +508,17 @@ strong{
 .mobile-dropdown ul{
   list-style: none;
   margin-right: 30px;
+  
 }
 
 .mobile-dropdown * {
   margin-right: 10px;
 }
-
+.mobile-dropdown div{
+  padding: 0.6em 0 0.6em 0;
+  border-bottom: 1px solid rgb(156, 156, 156);
+}
+ 
 .nav-left *:hover{
   color: #ccc;
 }

@@ -17,9 +17,7 @@ openCity = (event, cityName) =>{
   
   event.currentTarget.className += " active";
 }
-
 defaultOpen.click();
-
 
 const barIcon = document.querySelector('#bars');
 const mobileDropdown = document.querySelector(".mobile-dropdown")
@@ -29,22 +27,18 @@ mobileDropdown.classList.toggle("toggle-bar")
 })
 
 
-const github_data ={
-    "token": "15bd7b026859cf03790a9498405702a2fd915d12",
-    "username": "tech-doctor"
-}
-
 
 const body = {
   "query" : `
   query { 
     user(login: "tech-doctor"){
       avatarUrl,
-      status {
-        id
-      }
       login
       bio
+    status{
+      emoji
+      emojiHTML
+    }
       followers{
         totalCount
       }
@@ -73,11 +67,18 @@ const body = {
             updatedAt
             description
             isFork
-            licenseInfo {
-              id
+            isPrivate
+            isArchived
+            forkCount
+            parent{
+              nameWithOwner
+              url
+              forkCount
+              licenseInfo {
               name
             }
-          
+            }
+            
           }
         }
   }
@@ -86,18 +87,55 @@ const body = {
   }`
 }
 
+
+const token = "ab5ad6da225f992e57a62b8d159fa30f89a212ed";
 const baseUrl = "https://api.github.com/graphql";
 
-const header = {
-  "content-Type": "application/json",
-  "bearer token" : 'bearer' + github_data["token"]
+const headers = {
+  "Content-Type": "application/json",
+  "Authorization": `bearer ${token}`
 }
-
 
 fetch (baseUrl, {
   method:"POST",
-  header : header,
+  headers : headers,
   body: JSON.stringify(body)
 })
-.then(response => {console.log(JSON.stringify(response))})
+
+.then(response => response.json())
+.then(response => {
+  const data = response.data.user
+  console.log(data)
+})
 .catch(error=> console.log(error))
+
+const contentDiv = document.querySelector(".content-div")
+
+const repository = () =>{
+contentDiv.innerHTML = '';
+ const result = `<div class="repository-content">
+ <div class="left">
+   <p class="repo-name"><a href="#">My Portfolio.com</a><br>
+     <span class="forked-source">Forked from <a href = "#">parent</a></span>
+     <br><span class="repo-description">Repository description</span></p>
+   
+   
+   <div class="repo-extradetails">
+     <span class="repo-stack"><i class ="fas fa-circle"></i>Javascript</span>
+     <span class="repo-star"><i class="far fa-star"></i>20</span>
+     <span class="fork-count"><i class="fas fa-project-diagram"></i>2</span>
+     <span class="license">License name, extends</span>
+     <span class="repo-update">Updated on<span>12 Sep</span></span>
+   </div>
+ </div>
+ <div class="right">
+   <p>
+     <button><i class="far fa-star"></i>Star</button>
+   </p>
+   
+ </div>
+</div>`
+ return result 
+}
+
+contentDiv.innerHTML += repository()
