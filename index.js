@@ -3,7 +3,6 @@ const tabcontent = document.querySelectorAll('.tabcontent');
 const defaultOpen = document.getElementById("defaultOpen")
 
 
-
 openCity = (event, cityName) =>{
   tabcontent.forEach(tabcontentLoop =>{
   tabcontentLoop.style.display = 'none'
@@ -25,7 +24,6 @@ const mobileDropdown = document.querySelector(".mobile-dropdown")
 barIcon.addEventListener('click', ()=>{
 mobileDropdown.classList.toggle("toggle-bar")
 })
-
 
 
 const body = {
@@ -93,9 +91,10 @@ const body = {
 }
 
 
-const token = "f290045a307a0b90d8f99fdf603fa684a0484e35";
+const token = "MY_SECRET_TOKEN";
 const baseUrl = "https://api.github.com/graphql";
 
+//696bd7b2bde02c79c0acc67cba42947952b8f95f
 const headers = {
   "Content-Type": "application/json",
   "Authorization": `bearer ${token}`
@@ -114,7 +113,7 @@ fetch (baseUrl, {
 
   
   const firstDiv = document.querySelector('.div-1')
-  const {name,avatarUrl,status,login,bio,email,location,twitterUsername,websiteUrl,followers,following, starredRepositories} = data;
+  const {name,avatarUrl,status,login,bio,email,location,twitterUsername,websiteUrl,followers,following, starredRepositories, repositories} = data;
 
   const navAvatar =  document.querySelectorAll('.nav-image');
   navAvatar.forEach(navAvatar => {
@@ -158,10 +157,8 @@ fetch (baseUrl, {
   const repoCount = document.querySelector('.repo-count');
   repoCount.innerHTML = data.repositories.totalCount
 
-  
 
-
-  data.repositories.edges.map((repo, i) => {
+  repositories.edges.map((repo, i) => {
   const {name,parent, url,   viewerHasStarred, description, stargazerCount,primaryLanguage, licenseInfo, updatedAt} = repo.node
 
   const contentDiv = document.querySelector(".content-div")
@@ -195,6 +192,7 @@ fetch (baseUrl, {
    `
    return result 
   }
+
 
   contentDiv.innerHTML += repository()
 
@@ -233,3 +231,6 @@ const formatTimeUpdated = (date) => {
     return lastUpdated[0];
   }
 }
+
+
+
