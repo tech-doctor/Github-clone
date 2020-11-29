@@ -110,7 +110,7 @@ body{
 .content{
    display: flex;
    justify-content: center;
-   flex-wrap: wrap;
+   /* flex-wrap: wrap; */
    width: 100%;
    margin-top: 1.9em;
 }
@@ -131,14 +131,14 @@ body{
  border: 1px solid rgb(184, 184, 184); 
 }
 
-.fa-grin{
+.status-emoji{
   background-color: white;
-  padding: 0.5em;
+  padding: 0.7em;
   border-radius: 50%;
   border: 1px solid rgb(202, 202, 202);
   color: rgb(83, 83, 83);
   position: absolute;
-  top: 230px;
+  top: 200px;
   left: 235px;
 }
 .bio * {
@@ -189,9 +189,15 @@ strong{
     width: 70%;
     /* height: 220px; */
   }
-  .fa-grin{
-    top: 160px;
-    left: 165px;
+
+
+  .div-1 hr{
+    width: 85%;
+    position: absolute;
+  }
+  .status-emoji{
+    top: 130px;
+    left: 150px;
   }
   
 }
@@ -205,7 +211,7 @@ strong{
     display: none;
   }
 
-  .div-1 .fa-grin{
+  .div-1 .status-emoji{
     display: none;
   }
  .div-1 img{
@@ -222,6 +228,9 @@ strong{
   .friends{
     font-size: 15px;
   }
+  .content{
+    flex-wrap: wrap;
+  }
   
 }
 
@@ -234,6 +243,12 @@ strong{
 .tablinks{
   white-space: pre;
 }
+
+ button svg {
+  margin-right: 8px;
+  fill: #959da5;
+}
+
  .hr{
   color: white;
   width: 100%;
@@ -246,8 +261,13 @@ strong{
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 4px 20px;
+  padding: 0 40px 20px 0px;
+  font-size: 15px;
+  color: rgb(41, 41, 41);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+ 
+
 
 .tab button.active {
   border-bottom: 3px solid rgb(255, 124, 101);
@@ -256,10 +276,10 @@ strong{
 }
 
 .tab span{
-  background-color: rgb(202, 202, 202);
-  padding: 0 0.5em;
+  background-color: rgb(223, 223, 223);
+  padding: 0em 0.5em 0.2em 0.5em;
   margin-left: 5px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .tabcontent{
@@ -291,19 +311,16 @@ strong{
   to{opacity: 1;}
 }
 
-.tab-icon{
-  margin-right: 10px;
-  color: rgb(150, 150, 150);
-}
 
-@media(max-width:800px){
+@media(max-width:850px){
   .tab{
     width: 100%;
     overflow-x: scroll;
   }
-  .tab .tab-icon{
+   button svg{
     display: none;
   }
+
   .hr{
     display: none;
   }
@@ -325,17 +342,24 @@ strong{
   border: 1px solid rgb(199, 199, 199);
   border-radius: 4px;
   padding: 0.6em 1em;
+  outline: rgb(49, 49, 49);
 }
 .repo-extradetails{
   display: flex;
   margin-top: -10px;
   color: rgb(100, 100, 100);
+  padding: 1em 0;
 }
 .repo-extradetails span{
   padding-right: 1em;
   display: flex;
   align-items: center;
   font-size: 14px;
+}
+
+.repo-extradetails svg{
+  fill: rgb(116, 114, 114);
+
 }
 
 .repo-extradetails *{
@@ -372,7 +396,7 @@ strong{
 
 .repo-name .repo-description{
   color:rgb(100, 100, 100);
-  font-size: 17px;
+  font-size: 16px;
   margin: 1px 0;
 }
 
@@ -386,16 +410,12 @@ strong{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.fa-circle{
-  color: rgb(206, 206, 32);
-}
-
 .repository-content .right button *{
   margin-right: 3px;
 }
 
 .repository-content .right button{
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(243, 243, 243);
   border: 1px solid rgb(168, 168, 168);
   padding: 5px 7px;
   border-radius: 6px;
@@ -405,6 +425,12 @@ strong{
 
 .repository-content .right button:hover{
   background-color: rgb(231, 231, 231);
+}
+.repo-update *{
+  margin-left: 10px;
+}
+#unstar{
+  color: rgb(97, 97, 97);
 }
 
 
@@ -562,3 +588,4 @@ strong{
     display: none;
   }
 }
+
