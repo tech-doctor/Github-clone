@@ -93,7 +93,7 @@ const body = {
 }
 
 
-const token = "1c47c31ca44a4bad9ff2b18a90376a20ac54f1f2";
+const token = "f290045a307a0b90d8f99fdf603fa684a0484e35";
 const baseUrl = "https://api.github.com/graphql";
 
 const headers = {
