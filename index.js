@@ -94,7 +94,6 @@ const body = {
 const token = "MY_SECRET_TOKEN";
 const baseUrl = "https://api.github.com/graphql";
 
-//696bd7b2bde02c79c0acc67cba42947952b8f95f
 const headers = {
   "Content-Type": "application/json",
   "Authorization": `bearer ${token}`
